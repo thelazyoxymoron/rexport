@@ -59,7 +59,8 @@ def jsonify(d):
     if isinstance(d, praw.Reddit):
         return None
 
-    raise RuntimeError(f"Unexpected type: {type(d)}")
+    # raise RuntimeError(f"Unexpected type: {type(d)}")
+    raise {}
 
 
 def _extract(from_, **kwargs) -> List[Dict]:
