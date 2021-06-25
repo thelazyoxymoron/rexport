@@ -6,7 +6,7 @@ from typing import NamedTuple, List, Dict
 
 # pip install praw
 import praw # type: ignore
-from praw.models import Redditor, Subreddit, Submission, Comment, Multireddit, Message, PollData, PollOption, function # type: ignore
+from praw.models import Redditor, Subreddit, Submission, Comment, Multireddit, Message, PollData, PollOption # type: ignore
 
 
 def get_logger():
@@ -52,15 +52,14 @@ def jsonify(d):
             Comment,
             Message,
             PollData,
-            PollOption,
-            function
+            PollOption
     )): # TODO eh, hopefully it can't go into infinite loop...
         return jsonify(vars(d))
 
     if isinstance(d, praw.Reddit):
         return None
 
-    raise RuntimeError(f"Unexpected type: {type(d)}")
+    # raise RuntimeError(f"Unexpected type: {type(d)}")
     # raise {}
 
 
